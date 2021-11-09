@@ -4,6 +4,7 @@ import {
   IconButton,
   Toolbar,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { SiGoogleanalytics } from "react-icons/si";
@@ -17,6 +18,7 @@ const MultiStepForm = dynamic(() => import("../components/MultiStepForm"), {
 
 export default function Home() {
   const router = useRouter();
+  const isMobile = useMediaQuery("(max-width: 768px)");
   const { single } = router.query;
   return (
     <>
@@ -39,8 +41,12 @@ export default function Home() {
         </Toolbar>
       </AppBar>
       <Container>
-        <Box sx={{ my: 10 }}>
-          <Typography variant="h2" component="h1" gutterBottom>
+        <Box sx={{ mb: 10, mt: 2 }}>
+          <Typography
+            variant={isMobile ? "h4" : "h2"}
+            component="h1"
+            gutterBottom
+          >
             Matte undersøkelse!
           </Typography>
           <Typography sx={{ mb: 4 }}>
