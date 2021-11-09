@@ -34,6 +34,7 @@ export const getServerSideProps = async (ctx) => {
 
   const multiStep = (await db.collection("multi-step").get()).docs
     .map((doc) => {
+      const data = doc.data();
       return {
         id: doc.id,
         ...data,
